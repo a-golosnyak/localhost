@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> </title>
+  <link rel="stylesheet" type="text/css" href="test css3.css">
+  
+  <script src='OSC.js'></script>
+  
+    <style>
+    #box {
+        position :absolute;
+        background:orange;
+        border :1px solid red; }
+    </style
+
+
+</head>
+<body>
+    <div id='box'>ddff</div>
+    
+    <script>
+        SIZE = LEFT = 0
+        setInterval(animate, 30)
+        
+        function animate()
+        {
+            SIZE += 10
+            LEFT += 3
+            
+            if (SIZE == 200) 
+                SIZE = 0
+                
+            if (LEFT == 600) 
+                LEFT = 0
+                
+            S('box').width = SIZE + 'px'
+            S('box').height = SIZE + 'px'
+            S('box').left = LEFT + 'px'
+        }
+        
+        setTimeout(off, 500);
+        
+        function off()
+        {
+            setTimeout(function(){ S('box').background = 'lightblue'}, 500);
+        }
+        
+/*        function dothis()
+        { 
+            S('box').background = 'lightblue';
+        }   */
+    </script>
+    
+</body>
+</html>
