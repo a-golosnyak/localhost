@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> </title>
+  <link rel="stylesheet" type="text/css" href="test css3.css">
+  
+  <script src='OSC.js'></script>
+</head>
+<body>
+    <div id='object1'>
+        <div id="object2"> 
+        </div>
+    </div>
+    
+    
+    <div id="square" >
+        Square shape<br>
+        created using<br>
+        a simple div<br>
+        element with<br>
+        a 1px border
+    </div>
+    <br><br>
+    <div id='object'><script>window.screen.width.toString()</script></div>
+    
+    <script>
+        
+        S('object').border = 'solid 1px red'
+        S('object').borderWidth = '2px';
+        S('object').marginLeft = '10%';
+        S('object').width= '76%'; 
+        S('object').height = '200px'
+        S('object').padding = '2%'
+        alert('Для сокрытия элемента щелкните на кнопке OK');
+        S('object').visibility = 'hidden';
+        alert('Для возврата элемента щелкните на кнопке OK');
+        S('object').visibility = 'visible';
+        
+        setTimeout(function(){
+                if(S('object').visibility == 'hidden')
+                {
+                    S('object').visibility  = 'visible';
+                }
+                else
+                {
+                    S('object').visibility = 'hidden';
+                }
+                }, 333)
+    </script>
+    
+</body>
+</html>

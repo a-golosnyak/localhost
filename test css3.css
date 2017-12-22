@@ -1,0 +1,81 @@
+#object{
+    
+}
+
+
+.object1 {
+    margin: 150px;
+    border-style:solid;
+    border-width:1px;
+    background :lightgray;
+/*    color :darkred;*/
+    font-family :Arial;
+    font-size :12px;
+    text-align :justify;
+/*    display :table-cell;*/
+    width :148px;
+    padding :10px 20px 30px 40px; 
+    
+    background-clip: border-box;
+    background-origin: padding-box;
+}
+
+.object2 {
+    border-style:solid;
+    border-width:1px;
+    background :lightblue;
+/*    color :darkred;*/
+    font-family :Arial;
+    font-size :12px;
+    text-align :justify;
+    display :table-cell;
+    width :148px;
+    padding :10px 20px 30px 40px; 
+}
+
+#square {
+    position :absolute;
+    top :50px;
+    left :50px;
+    width :100px;
+    height :100px;
+    padding :2px;
+    text-align :center;
+    border-width :1px;
+    border-style :solid;
+    background :yellow;
+    transition :all .2s ease-in-out;
+    -moz-transition :all .8s ease-in-out;
+    -webkit-transition :all 2.8s ease-in-out;
+    -o-transition :all .8s ease-in-out;
+    -ms-transition :all .8s ease-in-out; 
+}
+
+#square:hover {
+    background :lightgreen;
+/*    -moz-transform :rotate(90deg);
+    -webkit-transform :rotate(90deg);
+    -o-transform :rotate(90deg);
+    -ms-transform :rotate(90deg);
+    transform :rotate(120deg); */
+    transform: perspective(10%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+form label {
+  display: inline-block;
+  width: 225px;
+  font-weight: bold;
+}
+
+.action{
+    cursor: pointer;
+}
+
+.action-button{
+    cursor: pointer;
+}
+

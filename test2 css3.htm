@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> </title>
+  <link rel="stylesheet" type="text/css" href="test css3.css">
+  
+  <script src='OSC.js'></script>
+</head>
+<body>
+    В этом документе содержится только этот текст.<br><br>
+    <script>
+        alert('Для добавления элемента щелкните на кнопке OK');
+        newdiv = document.createElement('div');
+        newdiv.id = 'NewDiv';
+        document.body.appendChild(newdiv);
+        S(newdiv).border = 'solid 1px red';
+        S(newdiv).width = '100px';
+        S(newdiv).height = '100px';
+        newdiv.innerHTML= "Это новый объект, вставленный в DOM";
+        tmp= newdiv.offsetTop;
+        alert('Для удаления элемента щелкните на кнопке OK');
+        pnode = newdiv.parentNode;
+        pnode.removeChild(newdiv);
+        tmp = pnode.offsetTop;
+    </script>
+</body>
+</html>

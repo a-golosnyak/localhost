@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+        <script>
+            function isCheckbox(form)
+            {
+              if (!document.maForm.maCheckbox.checked) {
+                alert('Необходимо принять условия!');
+                return false;
+              }
+              document.write(form.toString());
+              return true;
+            }
+        </script>
+    </head>
+  
+  
+  
+  <body>
+
+    <form action="#" name="maForm" id="maForm" onsubmit="return isCheckbox(this);">
+      <input type="text" name="maText" id="maText">
+      <label>
+      <input type="checkbox" name="maCheckbox" id="maCheckbox">
+      Я согласен
+      </label>
+      <input type="submit" value="⇒">
+    </form>
+    
+<!--    <script>
+
+      var maOnsubmit, maResult;
+      if (maOnsubmit = document.maForm.onsubmit) {
+        document.maForm.onsubmit = function(){
+          if (maResult = maOnsubmit()) {
+            console.log('Перехвачено разрешение onsubmit: ', maResult);
+            return true;
+          } else {
+            console.log('Перехвачен запрет onsubmit: ', maResult);
+            return confirm('А нам не всё равно?');
+          }
+        }
+      } else {
+        console.warn('Обработчик onsubmit не назначен');
+      }
+
+    </script> -->
+
+  
+
+</body></html>

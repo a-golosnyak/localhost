@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html >
+    <head>
+      <meta charset="UTF-8">
+      <title>Пример использованияAJAX</title>
+    </head>
+    <body style='text-align:center'>
+        <h1>Загрузка веб-страницы в контейнер DIV</h1>
+        <div id='info'>Это предложение будет заменено</div>
+        
+        <script>
+        
+//            i = setTimeout(GetData(), 1000);
+            setInterval(function(){
+                            GetData()
+                            }, 1000)
+
+        
+            function GetData()
+            {
+                param = "data=1";
+                request = new ajaxRequest();
+                request.open("POST", "urlpost.php", true);
+                request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                request.setRequestHeader("Content-length", param.length);
+                request.setRequestHeader("Connection", "close");
+                
+                request.onreadystatechange = function()
+                {
+                    if (this.readyState == 4)
+                    {
+                        if (this.status == 200)
+                        {
+                            if (this.responseText != null)
+                            {
+                                document.getElementById('info').innerHTML = this.responseText
+                            }
+                            else 
+                                alert("ОшибкаAJAX: Данные не получены")
+                        }
+                        else alert( "ОшибкаAJAX: " + this.statusText)
+                    }
+                }
+            }
+            request.send(param);
+            
+            function ajaxRequest()
+            {
+                try
+                {
+                    var request = new XMLHttpRequest()
+                }
+                catch(e1)
+                {
+                    try
+                    {
+                        request = new ActiveXObject("Msxml2.XMLHTTP")
+                    }
+                    catch(e2)
+                    {
+                        try
+                        {
+                           request = new ActiveXObject("Microsoft.XMLHTTP")
+                        }
+                        catch(e3)
+                        {
+                            request = false
+                        }
+                    }
+                }                                               
+                return request
+            }
+            
+             
+             
+             
+        </script>
+    
+    </body>
+</html>
