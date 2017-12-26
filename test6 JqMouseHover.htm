@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html;/>
+	<meta name="author" content="admin" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<title>Обработка действий с мышью</title>
+</head>
+
+<body>
+    <h2 id='test'>Проведи надо мной указателем мыши</h2>
+    <script>
+        $('#test').mouseenter(function() { 
+            $(this).html('Эй, прекрати щекотать!') 
+        })
+        $('#test').mouseleave(function() { 
+            $(this).html('Куда жеты подевался?') 
+        } )
+        
+        $('#test').mouseover(function() { $(this).html('Cut it out!') } )
+            .mouseout(function() { $(this).html('Try it this time...') } 
+    </script>
+    
+    <hr />
+    <button id='hide'>Спрятать</button>
+    <button id='show'>Показать</button>
+    <p id='text'>Щелкните на кнопках Спрятать и Показать </p>
+    <script>
+        $('#hide').click(function() { $('#text').hide('fast', 'linear') }) 
+        $('#show').click(function() { $('#text').show('slow', 'linear') })
+    </script>
+    <hr />
+    <button id='fadeout'>Растворить</button>
+    <button id='fadein'>Проявить</button>
+    <button id='fadetoggle'>Переключить состояние</button>
+    <button id='fadeto'>Растворить на 50%</button>
+    <p id='text1'>Щелкните на кнопках, расположенных вверху </p>
+    <script>
+        $('#fadeout') .click(function() { $('#text1').fadeOut( 'slow' ) })
+        $('#fadein') .click(function() { $('#text1').fadeIn( 'slow' ) })
+        $('#fadetoggle').click(function() { $('#text1').fadeToggle('slow' ) })
+        $('#fadeto') .click(function() { $('#text1').fadeTo( 'slow', 0.5) })
+    </script>
+    
+    <hr />     Эффекты: Скольжение     <br />
+    <button id='slideup'>Скольжение вверх</button>
+    <button id='slidedown'>Скольжение вниз</button>
+    <button id='slidetoggle'>Переключение состояния</button>
+    <div id='para' style='background:#def'>
+    <h2>From A Tale of Two Cities - By Charles Dickens</h2>
+    <p>It was the best of times, it was the worst of times, it was the age of 
+    wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch 
+    of incredulity, it was the season of Light, it was the season of Darkness, it was 
+    the spring of hope, it was the winter of despair, we had everything before us, we
+    had nothing before us, we were all going direct to Heaven, we were all going direct 
+    the other way - in short, the period was so far like the present period, that some 
+    of its noisiest authorities insisted on its being received, for good or for evil, 
+    in the superlative degree of comparison only</p>
+    </div>
+    <script>
+    $('#slideup') .click(function() { $('#para').slideUp( 'slow') })
+    $('#slidedown') .click(function() { $('#para').slideDown( 'slow') })
+    $('#slidetoggle').click(function() { $('#para').slideToggle('slow') })
+    </script>
+
+</body>
+</html>
