@@ -30,11 +30,23 @@
     bounce()
     function bounce()
     {
+//        varX;
+ //       varY;
+        
         $('#ball')
         .animate( { left:'270px', top :'380px' }, 'slow', 'linear')
-        .animate( { left:'540px', top :'190px' }, 'slow', 'linear')
+        .animate( { left:'540px', top :'190px' }, 'slow', 'linear' , bounce)
         .animate( { left:'270px', top :'0px' }, 'slow', 'linear')
         .animate( { left:'0px', top :'190px' }, 'slow', 'linear')
+        
+        $('#ball').click(function() { $(this).stop() })
+/*        varX++;
+        if(varX > 200)
+            varX = 0;
+            
+        varY++;
+        if(varY > 100)
+            varY = 0;*/
     }
     </script>
 
