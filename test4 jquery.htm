@@ -12,9 +12,68 @@
         либо
         <span id="asdf" >jQuery()</span>.
         <script>
-            $('#asd').css('border', '10px solid #aaa')
+            $('#asd').css('border', '2px solid #aaa')
             color = $('#asd').css('border', )
             $('#asdf').css('border', color)
         </script>
+        <hr />      <!-- -->
+        <button id='clickme'>Нажми меня</button> 
+        <p id='result'>Я- абзац</p>
+        
+        <script>
+        $('#clickme').click(function()
+        {
+            $('#result').html('Вы щелкнули на кнопке!')
+        })
+        </script>
+        
+         <hr />     <!-- ----------------------------------------------------------------->
+         <input id='first'> <input><input> <input> 
+        <script>
+  //          $('#first').focus()
+            $('input').focus(function() 
+            {
+                $(this).css('background', '#ff0')
+            } ); 
+            $('input') .blur(function() 
+            { 
+                $(this).css('background', '#aaa') 
+            } );
+        </script>
+        
+        <hr />      <!-- ----------------------------------------------------------------->       
+        <h2>Сделайте на кнопках одинарный и двойной щелчок</h2>
+        <button class='myclass'>Кнопка1</button>
+        <button class='myclass'>Кнопка2</button>
+        <button class='myclass'>Кнопка3</button>
+        <button class='myclass'>Кнопка4</button>
+        <button class='myclass'>Кнопка5</button>
+        <script>
+            $('.myclass').click( function() { $(this).slideUp() })
+            $('.myclass').dblclick( function() { $(this).hide() })
+        </script>
+        
+        <hr />      <!-- ----------------------------------------------------------------->
+        <h2>Нажмите какие-нибудь клавиши</h2>
+        <div id='result1'></div>
+        <script>
+        $(document).keypress(function(event)
+        {
+            key = String.fromCharCode(event.which)
+            
+            if (key >= 'a' && key <= 'z' ||
+                key >= 'A' && key <= 'Z' ||
+                key >= '0' && key <= '9')
+            {
+                $('#result1').html('Вы нажали: ' + key)
+                event.preventDefault()
+            }
+        })
+        </script>
+        <script>
+
+        </script>
+        
+        
     </body>
 </html>
