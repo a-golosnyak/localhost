@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html" />
+	<meta name="author" content="aaaaa" />
+	<title>Elements</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h2>Пример документа </h2>
+    <a href='http://google.com' title='Google'>ПосетитеGoogle</a>
+    <code>Это раздел кода</code> <br />
+    <span>А это просто текст</span>
+    <p>
+        <button id='a'>Удалить изображение</button>
+        <button id='b'>Очистить цитату</button>
+    </p>
+    <img id='ball' src='ball.png'>
+    <blockquote id='quote' style='border:1px dotted #444; height:20px;'> тест </blockquote>
+    <script> 
+        $('a').prepend('Link: ')
+        $("[href^='http']").append(" <img src='link.png'>") 
+        $('code').before('<hr>').after('<hr>') 
+        $('#a').click(function() { $('#ball').remove() } ) 
+        $('#b').click(function() { $('#quote').empty() } )
+    </script>
+
+</body>
+</html>
