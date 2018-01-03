@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Использование метода is</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<div><button>Кнопка в div-контейнере</button></div>
+		<div><button>Кнопка в div-контейнере</button></div>
+		<span><button>Кнопка в span-контейнере</button></span>
+		<div><button>Кнопка в div-контейнере</button></div>
+		<span><button>Кнопка в span-контейнере</button></span>
+		<p id='info'></p>
+		<p id='myinfo'></p>
+		
+		<script>
+			$('button').click(function()
+			{
+				var elem = ''
+				if ($(this).parent().is('div')) elem = 'div'
+				else elem = 'span'
+				$('#info').html('Вы щелкнули на' + ' ' + elem)
+
+				if($(this).parent().is('div'))
+					$(this).css('color', 'blue');
+				else
+					$(this).css('background', 'green');
+
+				//$('#myinfo').attr({title: 'Установка атрибута html'}) 
+				//$('#myinfo').html('Вы щелкнули на' + ' ' + elem)
+			//	alert($('#myinfo').attr('id'))
+
+				cars = [
+					'Mercesess',
+					'BMW',
+					'Ford', 
+					'Toyota',
+					'Lada',
+					'Cherry'
+				]
+
+			$('#myinfo').html('Вывод массива в строку: ' + cars.join())
+			})
+
+				
+			
+		</script>
+	</body>
+</html>
