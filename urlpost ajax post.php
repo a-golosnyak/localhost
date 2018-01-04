@@ -9,8 +9,8 @@
         switch($Data)
         {
             case "1":
-                $Ansver = 1024;
-                $Ansver = $Time;
+                $Ansver = 1024 . ' ' . $Time;
+//                $Ansver = $Time;
                 break;
                 
             case "2":
@@ -27,7 +27,6 @@
                 
             default:
                 $Ansver = "Undefined data";
-                $Ansver = $Data;
                 break;
         }
         echo $Ansver;

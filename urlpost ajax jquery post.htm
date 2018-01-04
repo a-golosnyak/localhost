@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html> <!-- jqueryajaxpost.htm -->
+	<head>
+		<title>jQuery Ajax Post</title>
+		<meta charset="UTF-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	</head>
+	<body style='text-align:center'> 
+		<h1>Загрузка веб-страницы в DIV</h1>
+		<div id='info'>Это предложение будет заменено</div>
+		<div><button class=trigger>Тест</button></div>
+
+		<script>
+			 $('.trigger').click(function(event){
+                
+                $.post('urlpost ajax post.php', { data: '1' }, function(data)
+				{
+					$('#info').html(data)
+				} )
+            });  
+		</script>
+	</body>
+</html>

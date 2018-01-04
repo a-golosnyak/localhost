@@ -3,27 +3,33 @@
     <head>
       <meta charset="UTF-8">
       <title>Пример использованияAJAX</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
     </head>
     <body style='text-align:center'>
         <h1>Загрузка веб-страницы в контейнер DIV</h1>
         <div id='info'>Это предложение будет заменено</div>
+        <div><button class=trigger>Тест</button></div>
         
         <script>
         
 //            i = setTimeout(GetData(), 1000);
-            setInterval(function(){
+/*            setInterval(function(){
                             GetData()
                             }, 1000)
-
+                            */
+            $('.trigger').click(function(event) {
+                GetData();
+            });                   
         
             function GetData()
             {
                 param = "data=1";
                 request = new ajaxRequest();
-                request.open("POST", "urlpost.php", true);
+                request.open("POST", "urlpost ajax post.php", true);
                 request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-                request.setRequestHeader("Content-length", param.length);
-                request.setRequestHeader("Connection", "close");
+//                request.setRequestHeader('Content-length', param.length);
+//                request.setRequestHeader("Connection", "close");
                 
                 request.onreadystatechange = function()
                 {
@@ -41,8 +47,9 @@
                         else alert( "ОшибкаAJAX: " + this.statusText)
                     }
                 }
+                request.send(param);
             }
-            request.send(param);
+            
             
             function ajaxRequest()
             {
