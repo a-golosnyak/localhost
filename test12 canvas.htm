@@ -12,14 +12,14 @@
 		Это элемент canvas с идентификатором <i>mycanvas</i>
 		Этот текст виден только в браузерах, не поддерживающих HTML5
 	</canvas>
-	
+
 	<script>
 		canvas = O('mycanvas')
 		context = canvas.getContext('2d')
-		context.fillStyle = 'red'
+		context.fillStyle = 'green'//'red'
 		S(canvas).border = '1px solid black'
 		context.beginPath()
-		context.moveTo(160, 120)
+//		context.moveTo(160, 120)
 		context.arc(160, 120, 70, 0, Math.PI * 2, false)
 		context.closePath()
 		context.fill()
