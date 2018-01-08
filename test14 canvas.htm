@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>HTML 5</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src='OSC.js'> </script>
+		
+	</head>
+	<body>
+		<br>
+		<canvas id='mycanvas1' width='100' height='200' >	</canvas>	
+		<canvas id='mycanvas2' width='100' height='200' >	</canvas>	
+		<canvas id='mycanvas3' width='100' height='200'>	</canvas>	
+		<canvas id='mycanvas4' width='100' height='200'>	</canvas>	
+
+		<script>
+
+			x1 = 0;	
+			y1 = 0;	
+			width1 = 100;
+			height1 = 200;
+			x2 = 0;	
+			y2 = 0; 
+			width2 = 100;
+			height2 = 200;
+			x3 = 0;	
+			y3 = 0; 
+			width3 = 100;
+			height3 = 200;
+			x4 = 0;
+			y4 = 0;
+			width4 = 100;
+			height4 = 200;
+
+			canvas = O('mycanvas1')
+			context = canvas.getContext('2d')
+			gradient = context.createLinearGradient(x1, y1, width1, height1)
+			gradient.addColorStop(0, 'white')
+			gradient.addColorStop(1, 'black')
+			context.fillStyle = gradient
+			context.fillRect(x1, y1, width1, height1)
+
+			canvas = O('mycanvas2')
+			context = canvas.getContext('2d')
+			gradient = context.createLinearGradient(x2, y2, width2, height2)
+			gradient.addColorStop(0, 'white')
+			gradient.addColorStop(1, 'black')
+			context.fillStyle = gradient
+			context.fillRect(x2, y2, width2, height2)
+
+			canvas = O('mycanvas3')
+			context = canvas.getContext('2d')
+			gradient = context.createLinearGradient(x3, y3, width3, height3)
+			gradient.addColorStop(0, 'yellow')
+			gradient.addColorStop(1, 'red')
+			context.fillStyle = gradient
+			context.fillRect(x3, y3, width3, height3)
+
+			canvas = O('mycanvas4')
+			context = canvas.getContext('2d')
+			gradient = context.createLinearGradient(x4, y4, width4, height4)
+			gradient.addColorStop(0, 'green')
+			gradient.addColorStop(1, 'purple')
+			context.fillStyle = gradient
+			context.fillRect(x4, y4, width4, height4)
+		</script>
+	</body>
+</html>
