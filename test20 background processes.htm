@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html> <!-- webworkers.html -->
+  <head>
+    <title>Web Workers</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src='OSC.js'></script>
+  </head>
+  <body>
+    Current highest prime number:
+    <span id='result'>0</span>
+    <br>
+    <button id='stpbtn' onclick="TriggWorker()">Переключить worker</button>
+	<br>
+	<span id='state'>Worker запущен</span>
+	
+<!--	<input type="checkbox" id = "showstate" checked> 	-->
+	
+	<script>
+
+		ArrangeWorker();
+
+		function TriggWorker(){
+			if(WorkerSate == 1)
+			{
+				worker.terminate();
+				WorkerSate = 0;
+
+				$('state').innerHTML = "Worker остановлен"
+			}
+			else
+			{
+				ArrangeWorker();
+			}
+		}
+
+		function ArrangeWorker(){
+			if (!!window.Worker)
+			{
+				WorkerSate = 1;
+				worker = new Worker('worker.js')
+
+				worker.onmessage = function (event)
+				{
+					O('result').innerHTML = event.data;
+				}
+			}
+			else
+			{
+				alert("Web workers not supported")
+			}
+		} 
+	</script>
+  </body>
+</html>
