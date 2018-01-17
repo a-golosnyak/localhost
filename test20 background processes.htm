@@ -11,25 +11,30 @@
     <br>
     <button id='stpbtn' onclick="TriggWorker()">Переключить worker</button>
 	<br>
-	<span id='state'>Worker запущен</span>
+	<span id='state'>Worker остановлен</span>
 	
 <!--	<input type="checkbox" id = "showstate" checked> 	-->
 	
 	<script>
-
-		ArrangeWorker();
+		WorkerSate = 0;
 
 		function TriggWorker(){
+//			O('state').innerHTML = "Worker остановлен"
+			
 			if(WorkerSate == 1)
 			{
 				worker.terminate();
 				WorkerSate = 0;
 
-				$('state').innerHTML = "Worker остановлен"
+				message = document.getElementById('state')
+				message.innerHTML = "Worker остановлен";
 			}
 			else
 			{
 				ArrangeWorker();
+
+				message = document.getElementById('state')
+				message.innerHTML = "Worker запущен";
 			}
 		}
 
