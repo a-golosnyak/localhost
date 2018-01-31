@@ -16,6 +16,7 @@ class CalculatorTests extends PHPUnit\Framework\TestCase
         $this->calculator = NULL;
     }
  
+ 
     public function testAdd()
     {
         $result = $this->calculator->add(1, 2);
