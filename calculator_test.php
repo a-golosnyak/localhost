@@ -1,7 +1,6 @@
 
 <?php
 require 'Calculator.php';
-//require_once 'c:\Users\AND\AppData\Roaming\Composer\vendor\Autoload.php';
 
 class CalculatorTests extends PHPUnit\Framework\TestCase
 {
