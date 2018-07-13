@@ -11,11 +11,11 @@
 <body>
 <!--    <form action="report.php" method="POST">
     
-        <p>Имя: <input name="name" type="text" value="And"></p>
-        <p>Фамилия: <input name="surname" type="text" value="Gol" ></p>
+        <p>РРјСЏ: <input name="name" type="text" value="And"></p>
+        <p>Р¤Р°РјРёР»РёСЏ: <input name="surname" type="text" value="Gol" ></p>
         <p>E-mail: <input name="email" type="text" value="aa@mail.ru"></p>
-        <p>Сообщение: <br /><textarea name="message" cols="30" rows="5" >qwqwd</textarea></p>
-        <p><input type='submit' value='Отправить'></p>
+        <p>РЎРѕРѕР±С‰РµРЅРёРµ: <br /><textarea name="message" cols="30" rows="5" >qwqwd</textarea></p>
+        <p><input type='submit' value='РћС‚РїСЂР°РІРёС‚СЊ'></p>
          
         <script type="text/javascript">
             document.write("Today is " + Date() );
@@ -34,12 +34,12 @@
         if ($f != '')
         {
             $c = intval((5 / 9) * ($f - 32));
-            $out = "$f °f equals $c °c";
+            $out = "$f В°f equals $c В°c";
         }
         elseif($c != '')
         {
             $f = intval((9 / 5) * $c + 32);
-            $out = "$c °c equals $f °f";
+            $out = "$c В°c equals $f В°f";
         }
         else $out = "";
         

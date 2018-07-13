@@ -11,11 +11,11 @@
 <body>
 <!--    <form action="report.php" method="POST">
     
-        <p>Имя: <input name="name" type="text" value="And"></p>
-        <p>Фамилия: <input name="surname" type="text" value="Gol" ></p>
+        <p>РРјСЏ: <input name="name" type="text" value="And"></p>
+        <p>Р¤Р°РјРёР»РёСЏ: <input name="surname" type="text" value="Gol" ></p>
         <p>E-mail: <input name="email" type="text" value="aa@mail.ru"></p>
-        <p>Сообщение: <br /><textarea name="message" cols="30" rows="5" >qwqwd</textarea></p>
-        <p><input type='submit' value='Отправить'></p>
+        <p>РЎРѕРѕР±С‰РµРЅРёРµ: <br /><textarea name="message" cols="30" rows="5" >qwqwd</textarea></p>
+        <p><input type='submit' value='РћС‚РїСЂР°РІРёС‚СЊ'></p>
          
         <script type="text/javascript">
             document.write("Today is " + Date() );
@@ -27,9 +27,9 @@
         $connection = new mysqli('localhost', 'root', '', 'publications');
 
         if($connection->connect_error)
-            echo "Подключения не произошло";
+            echo "РџРѕРґРєР»СЋС‡РµРЅРёСЏ РЅРµ РїСЂРѕРёР·РѕС€Р»Рѕ";
         else
-            echo "Подключились!";
+            echo "РџРѕРґРєР»СЋС‡РёР»РёСЃСЊ!";
         
         if(isset($_POST['delete']) && isset($_POST['id']) )
         {
@@ -37,7 +37,7 @@
             $query = "DELETE FROM classics WHERE id=$id";
             $result = $connection->query($query);
             if($result == NULL)
-                echo "Сбой при удалении данных: $query<br>" . $connection->error . "<br><br>";
+                echo "РЎР±РѕР№ РїСЂРё СѓРґР°Р»РµРЅРёРё РґР°РЅРЅС‹С…: $query<br>" . $connection->error . "<br><br>";
         }
         
         if (isset($_POST['author']) &&
@@ -56,7 +56,7 @@
                 $result = $connection->query($query); 
                 
                 if ($result == NULL) 
-                    echo "Сбой при вставке данных: $query<br>" . $connection->error . "<br><br>";
+                    echo "РЎР±РѕР№ РїСЂРё РІСЃС‚Р°РІРєРµ РґР°РЅРЅС‹С…: $query<br>" . $connection->error . "<br><br>";
             }
             
         echo <<<_END
@@ -67,14 +67,14 @@
         Category <input type="text" name="category">
         Year <input type="text" name="year">
         Id <input type="text" name="id">
-        <input type="submit" value="ADD RECORD"> // кнопка// ДОБАВИТЬ ЗАПИСЬ</pre></form>
+        <input type="submit" value="ADD RECORD"> // РєРЅРѕРїРєР°// Р”РћР‘РђР’РРўР¬ Р—РђРџРРЎР¬</pre></form>
 _END;
         $query = "SELECT * FROM classics";
         $result = $connection->query($query);
             
         if(!isset($result))
         {
-            echo "Сбой запроса";
+            echo "РЎР±РѕР№ Р·Р°РїСЂРѕСЃР°";
         }
         
         for($i=0; $i<$result->num_rows; ++$i)
