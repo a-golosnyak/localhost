@@ -9,9 +9,9 @@
     Current highest prime number:
     <span id='result'>0</span>
     <br>
-    <button id='stpbtn' onclick="TriggWorker()">Переключить worker</button>
+    <button id='stpbtn' onclick="TriggWorker()">РџРµСЂРµРєР»СЋС‡РёС‚СЊ worker</button>
 	<br>
-	<span id='state'>Worker остановлен</span>
+	<span id='state'>Worker РѕСЃС‚Р°РЅРѕРІР»РµРЅ</span>
 	
 <!--	<input type="checkbox" id = "showstate" checked> 	-->
 	
@@ -19,7 +19,7 @@
 		WorkerSate = 0;
 
 		function TriggWorker(){
-//			O('state').innerHTML = "Worker остановлен"
+//			O('state').innerHTML = "Worker РѕСЃС‚Р°РЅРѕРІР»РµРЅ"
 			
 			if(WorkerSate == 1)
 			{
@@ -27,14 +27,14 @@
 				WorkerSate = 0;
 
 				message = document.getElementById('state')
-				message.innerHTML = "Worker остановлен";
+				message.innerHTML = "Worker РѕСЃС‚Р°РЅРѕРІР»РµРЅ";
 			}
 			else
 			{
 				ArrangeWorker();
 
 				message = document.getElementById('state')
-				message.innerHTML = "Worker запущен";
+				message.innerHTML = "Worker Р·Р°РїСѓС‰РµРЅ";
 			}
 		}
 
