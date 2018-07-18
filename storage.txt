@@ -1,0 +1,17 @@
+Name: stm32f030
+Message: MCU is goodName: stm32f030
+Message: MCU is goodName: stm32f030
+Message: MCU is goodName: stm32f030
+Message: MCU is goodName: stm32f030
+Message: MCU is goodName: stm32f030
+Message: MCU is goodName: stm32f030
+Message: MCU is goodName: 123
+Message: Name: aaa
+Message: Name: 123
+Message: Name: aaa
+Message: MCU is goodName: aaa
+Message: MCU is goodName: aaa
+Message: MCU is goodName: aaa
+Message: MCU is goodName: aaa
+Message: MCU is goodName: aaa
+Message: MCU is good
