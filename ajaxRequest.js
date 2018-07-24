@@ -1,23 +1,23 @@
 <script>
     function ajaxRequest()
     {
-        try// Браузер не относится к семейству IE?
-        { // Да
+        try// Р‘СЂР°СѓР·РµСЂ РЅРµ РѕС‚РЅРѕСЃРёС‚СЃСЏ Рє СЃРµРјРµР№СЃС‚РІСѓ IE?
+        { // Р”Р°
             var request = new XMLHttpRequest()
         }
         catch(e1)
         {
-            try // ЭтоIE 6+?
-            { // Да
+            try // Р­С‚РѕIE 6+?
+            { // Р”Р°
                 request = new ActiveXObject("Msxml2.XMLHTTP")
             }
             catch(e2)
             {
-                try // ЭтоIE 5?
-                { // Да
+                try // Р­С‚РѕIE 5?
+                { // Р”Р°
                     request = new ActiveXObject("Microsoft.XMLHTTP")
                 }
-                catch(e3) // Данный браузер не поддерживает AJAX
+                catch(e3) // Р”Р°РЅРЅС‹Р№ Р±СЂР°СѓР·РµСЂ РЅРµ РїРѕРґРґРµСЂР¶РёРІР°РµС‚ AJAX
                 {
                     request = false
                 }

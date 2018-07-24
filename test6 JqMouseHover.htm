@@ -5,17 +5,17 @@
 	<meta http-equiv="content-type" content="text/html;/>
 	<meta name="author" content="admin" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<title>Обработка действий с мышью</title>
+	<title>РћР±СЂР°Р±РѕС‚РєР° РґРµР№СЃС‚РІРёР№ СЃ РјС‹С€СЊСЋ</title>
 </head>
 
 <body>
-    <h2 id='test'>Проведи надо мной указателем мыши</h2>
+    <h2 id='test'>РџСЂРѕРІРµРґРё РЅР°РґРѕ РјРЅРѕР№ СѓРєР°Р·Р°С‚РµР»РµРј РјС‹С€Рё</h2>
     <script>
         $('#test').mouseenter(function() { 
-            $(this).html('Эй, прекрати щекотать!') 
+            $(this).html('Р­Р№, РїСЂРµРєСЂР°С‚Рё С‰РµРєРѕС‚Р°С‚СЊ!') 
         })
         $('#test').mouseleave(function() { 
-            $(this).html('Куда жеты подевался?') 
+            $(this).html('РљСѓРґР° Р¶РµС‚С‹ РїРѕРґРµРІР°Р»СЃСЏ?') 
         } )
         
         $('#test').mouseover(function() { $(this).html('Cut it out!') } )
@@ -23,19 +23,19 @@
     </script>
     
     <hr />
-    <button id='hide'>Спрятать</button>
-    <button id='show'>Показать</button>
-    <p id='text'>Щелкните на кнопках Спрятать и Показать </p>
+    <button id='hide'>РЎРїСЂСЏС‚Р°С‚СЊ</button>
+    <button id='show'>РџРѕРєР°Р·Р°С‚СЊ</button>
+    <p id='text'>Р©РµР»РєРЅРёС‚Рµ РЅР° РєРЅРѕРїРєР°С… РЎРїСЂСЏС‚Р°С‚СЊ Рё РџРѕРєР°Р·Р°С‚СЊ </p>
     <script>
         $('#hide').click(function() { $('#text').hide('fast', 'linear') }) 
         $('#show').click(function() { $('#text').show('slow', 'linear') })
     </script>
     <hr />
-    <button id='fadeout'>Растворить</button>
-    <button id='fadein'>Проявить</button>
-    <button id='fadetoggle'>Переключить состояние</button>
-    <button id='fadeto'>Растворить на 50%</button>
-    <p id='text1'>Щелкните на кнопках, расположенных вверху </p>
+    <button id='fadeout'>Р Р°СЃС‚РІРѕСЂРёС‚СЊ</button>
+    <button id='fadein'>РџСЂРѕСЏРІРёС‚СЊ</button>
+    <button id='fadetoggle'>РџРµСЂРµРєР»СЋС‡РёС‚СЊ СЃРѕСЃС‚РѕСЏРЅРёРµ</button>
+    <button id='fadeto'>Р Р°СЃС‚РІРѕСЂРёС‚СЊ РЅР° 50%</button>
+    <p id='text1'>Р©РµР»РєРЅРёС‚Рµ РЅР° РєРЅРѕРїРєР°С…, СЂР°СЃРїРѕР»РѕР¶РµРЅРЅС‹С… РІРІРµСЂС…Сѓ </p>
     <script>
         $('#fadeout') .click(function() { $('#text1').fadeOut( 'slow' ) })
         $('#fadein') .click(function() { $('#text1').fadeIn( 'slow' ) })
@@ -43,10 +43,10 @@
         $('#fadeto') .click(function() { $('#text1').fadeTo( 'slow', 0.5) })
     </script>
     
-    <hr />     Эффекты: Скольжение     <br />
-    <button id='slideup'>Скольжение вверх</button>
-    <button id='slidedown'>Скольжение вниз</button>
-    <button id='slidetoggle'>Переключение состояния</button>
+    <hr />     Р­С„С„РµРєС‚С‹: РЎРєРѕР»СЊР¶РµРЅРёРµ     <br />
+    <button id='slideup'>РЎРєРѕР»СЊР¶РµРЅРёРµ РІРІРµСЂС…</button>
+    <button id='slidedown'>РЎРєРѕР»СЊР¶РµРЅРёРµ РІРЅРёР·</button>
+    <button id='slidetoggle'>РџРµСЂРµРєР»СЋС‡РµРЅРёРµ СЃРѕСЃС‚РѕСЏРЅРёСЏ</button>
     <div id='para' style='background:#def'>
     <h2>From A Tale of Two Cities - By Charles Dickens</h2>
     <p>It was the best of times, it was the worst of times, it was the age of 

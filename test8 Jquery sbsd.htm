@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> </title>
+   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+	<script>
+		$(document).ready(function($) {
+			var elem = $(".target3").attr("class");
+			$(".target3").css("background-color", "lightgrey");
+		});
+	</script>
+</head>
+	<body>
+		
+
+		<br>
+		<br>
+
+		<div class="target1">First div</div>
+		<div class="target2">Second div</div>
+		<div class="target3">Thitd div</div>
+
+		<span>First span</span>
+		<span>Second span</span>
+		<span>Third span</span>
+
+		<br>
+		<br>
+		<button type="button" id='Do'>Action</button>
+
+		<script>
+			$("#Do").hover(
+				function(event) {
+					$(".target1").css('color', 'blue');
+				},
+				function(event){
+					$(".target1").css('color', 'black');
+					$(".target2").css('background-color', 'white');
+			});
+
+			$("#Do").click(function(event) {
+				$(".target2").css('background-color', 'blue');
+			});
+		</script>
+	</body>
+</html>

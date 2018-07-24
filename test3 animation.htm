@@ -21,7 +21,7 @@
     
     <script>
         SIZE = LEFT = 0
-        setInterval(animate, 30)
+        var TimId = setInterval(animate, 50)
         
         function animate()
         {
@@ -43,7 +43,10 @@
         
         function off()
         {
-            setTimeout(function(){ S('box').background = 'lightblue'}, 500);
+            setTimeout(function(){ 
+                S('box').background = 'lightblue';
+                clearInterval(TimId);
+                }, 500);
         }
         
 /*        function dothis()

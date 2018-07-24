@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Использование метода is</title>
+		<title>РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РјРµС‚РѕРґР° is</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	</head>
 	<body>
-		<div><button>Кнопка в div-контейнере</button></div>
-		<div><button>Кнопка в div-контейнере</button></div>
-		<span><button>Кнопка в span-контейнере</button></span>
-		<div><button>Кнопка в div-контейнере</button></div>
-		<span><button>Кнопка в span-контейнере</button></span>
+		<div><button>РљРЅРѕРїРєР° РІ div-РєРѕРЅС‚РµР№РЅРµСЂРµ</button></div>
+		<div><button>РљРЅРѕРїРєР° РІ div-РєРѕРЅС‚РµР№РЅРµСЂРµ</button></div>
+		<span><button>РљРЅРѕРїРєР° РІ span-РєРѕРЅС‚РµР№РЅРµСЂРµ</button></span>
+		<div><button>РљРЅРѕРїРєР° РІ div-РєРѕРЅС‚РµР№РЅРµСЂРµ</button></div>
+		<span><button>РљРЅРѕРїРєР° РІ span-РєРѕРЅС‚РµР№РЅРµСЂРµ</button></span>
 		<p id='info'></p>
 		<p id='myinfo'></p>
 		
@@ -17,17 +17,21 @@
 			$('button').click(function()
 			{
 				var elem = ''
-				if ($(this).parent().is('div')) elem = 'div'
-				else elem = 'span'
-				$('#info').html('Вы щелкнули на' + ' ' + elem)
+				
+				if ($(this).parent().is('div')) 
+					elem = 'div'
+				else 
+					elem = 'span'
+
+				$('#info').html('Р’С‹ С‰РµР»РєРЅСѓР»Рё РЅР°' + ' ' + elem)
 
 				if($(this).parent().is('div'))
 					$(this).css('color', 'blue');
 				else
 					$(this).css('background', 'green');
 
-				//$('#myinfo').attr({title: 'Установка атрибута html'}) 
-				//$('#myinfo').html('Вы щелкнули на' + ' ' + elem)
+				//$('#myinfo').attr({title: 'РЈСЃС‚Р°РЅРѕРІРєР° Р°С‚СЂРёР±СѓС‚Р° html'}) 
+				//$('#myinfo').html('Р’С‹ С‰РµР»РєРЅСѓР»Рё РЅР°' + ' ' + elem)
 			//	alert($('#myinfo').attr('id'))
 
 				cars = [
@@ -39,7 +43,7 @@
 					'Cherry'
 				]
 
-			$('#myinfo').html('Вывод массива в строку: ' + cars.join())
+			$('#myinfo').html('Р’С‹РІРѕРґ РјР°СЃСЃРёРІР° РІ СЃС‚СЂРѕРєСѓ: ' + cars.join())
 			})
 
 				
