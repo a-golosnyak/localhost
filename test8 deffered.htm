@@ -40,5 +40,33 @@
 				$(".target2").css('background-color', 'blue');
 			});
 		</script>
+		<hr>
+
+		<button id='do1'>Go </button>
+		<p>Ready...</p>
+		<script>
+			function fn1() {
+			 $("p").append(" 1 ");
+			}
+
+			function fn2() {
+			 $("p").append(" 2 ");
+			}
+
+			function fn3(n) {
+			 $("p").append(n + " 3 " + n);
+			}
+
+			var dfd = $.Deferred()
+			.done( [fn1, fn2], fn3, [fn2, fn1] )
+			.done(function(n) {
+				$("#do1").append(n + " we're done.");
+			});
+
+			$("button").on("click", function() {
+			 dfd.resolve(" and");
+			});
+		</script>
+
 	</body>
 </html>
