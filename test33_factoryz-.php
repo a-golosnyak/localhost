@@ -51,7 +51,7 @@ class WellConnected extends Employee
 
 $boss = new NastyBoss ( ) ;
 $boss->addEmployee ( Employee::recruit ( " Игорь " ) ;
-$boss->addEmployee ( Employee::recruit ( " Владимр" ) ;
+$boss->addEmployee ( Employee::recruit ( " Владимир" ) ;
 $boss->addEmployee ( Employee::recruit ( " Мария" ) ;
 /*=======================================================================*/
 

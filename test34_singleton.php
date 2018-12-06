@@ -2,26 +2,33 @@
 
 
 /*===== Singleton =======================================================*/
-class Preferences
+
+class Car
 {
-	private $props = array ( ) ;
-	private static $instance;
-	private function _construct() { };
+	static $instance;
+	public $instanceName;
 
-	public static function getInstance() {
-		if( empty(self::$instance) ) {
-			self::$instance = new Preferences();
+	function __construct() {}
+
+	static function getInstance($name){
+		if(empty(self::$instance))
+		{
+			$var = new Car();
+			$var->instanceName = $name;
+			self::$instance = $var;
+			return $var;
 		}
-		return self::$instance ;
-	}
 
-	public function setProperty ($key, $val ) {
-		$this->props[$key] = $val;
-	}
-
-	public function getProperty ( $key ) {
-		return $this->props($key);
+		return self::$instance;
 	}
 }
+
+$car = Car::getInstance("Honda");
+$car ->instanceName = "Lexus";
+$car = Car::getInstance("Nissan");
+
+echo "<pre>";
+var_dump($car);
+echo "</pre>"
 
 ?>
