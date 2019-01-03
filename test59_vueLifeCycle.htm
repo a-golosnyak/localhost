@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Жизненный цикл Vue.js</title>
+		<meta charset="utf-8" />
+	</head>
+	<body>
+		<div id="app">
+			<h2>{{message}}</h2>
+			<button v-on:click="message='Updated'">Update</button>
+			<button v-on:click="destroy">Destroy</button>
+		</div>
+		<script src="https://unpkg.com/vue"></script>
+		<script>
+			new Vue({
+			    el: "#app",
+			    data:{
+			        message: 'Welcome to Vue.js'
+			    },
+			    methods:{
+			        destroy: function(){
+			            this.$destroy();
+			        }
+			    },
+			    beforeCreate: function(){
+			        console.log('beforeCreate()');
+			    },
+			    created: function(){
+			        console.log('created()');
+			    },
+			    beforeMount: function(){
+			        console.log('beforeMount()');
+			    },
+			    mounted: function(){
+			        console.log('mounted()');
+			    },
+			    beforeUpdate: function(){
+			        console.log('beforeUpdate()');
+			    },
+			    updated: function(){
+			        console.log('updated()');
+			    },
+			    beforeDestroy: function(){
+			        console.log('beforeDestroy()');
+			    },
+			    destroyed: function(){
+			        console.log('destroyed()');
+			    }
+			});
+		</script>
+	</body>
+</html>
