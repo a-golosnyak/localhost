@@ -1,59 +1,32 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Компоненты Vue.js</title>
+		<title>Формы во Vue.js</title>
 		<meta charset="utf-8" />
-		<style>
-		a:hover{cursor:pointer;}
-		</style>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	</head>
 	<body>
-		<div id="app">
-		    <table>
-		      <tr>
-		        <td><a @click="sortParam='title'">Модель</a></td>
-		        <td><a @click="sortParam='company'">Компания</a></td>
-		        <td><a @click="sortParam='price'">Цена</a></td></tr>
-		      <tr v-for="phone in sortedList">
-		        <td>{{phone.title}}</td><td>{{phone.company}}</td><td>{{phone.price}}</td>
-		    </table>
-		</div>
-		<script src="https://unpkg.com/vue"></script>
-		<script>
-		    var app = new Vue({
-		        el: '#app',
-		        data: {
-		            sortParam: '',
-		            phones: [
-		                {title:'Galaxy S8', company:'Samsung', price: 45000},
-		                {title:'iPhone 7', company:'Apple', price: 49000}, 
-		                {title:'Nokia N8', company:'HMD Global', price: 25000},
-		                {title:'Galaxy Note 8', company:'Samsung', price: 50000},
-		                {title:'iPhone 8', company:'Apple', price: 60000}]
-		        },
-		        computed:{
-		            sortedList () {
-		                switch(this.sortParam){
-		                    case 'title': return this.phones.sort(sortByTitle);
-		                    case 'company': return this.phones.sort(sortByCompany);
-		                    case 'price': return this.phones.sort(sortByPrice);
-		                    default: return this.phones;
-		                }
-		             }
-		        }
-		    });
-			var sortByTitle = function(d1, d2)
-							{
-								return (d1.title.toLowerCase() > d2.title.toLowerCase()) ? 1 : -1;
-							};
-			var sortByCompany = function(d1, d2)
-							{
-								return (d1.company.toLowerCase() > d2.company.toLowerCase()) ? 1 : -1;
-							};
-			var sortByPrice = function(d1, d2)
-							{
-								return (d1.price > d2.price) ? 1 : -1;
-							};
-		</script>
+        <div id="app">
+            <input type="radio" value="Tom" v-model="user">
+            <label>Tom</label>
+            <br>
+            <input type="radio" value="Bob" v-model="user">
+            <label>Bob</label>
+            <br>
+            <input type="radio" value="Sam" v-model="user">
+            <label>Sam</label>
+            <br>
+            <span>Выбрано: {{ user }}</span>
+        </div>
+        
+        <script src="https://unpkg.com/vue"></script>
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    user:''
+                }
+            });
+        </script>
 	</body>
 </html>

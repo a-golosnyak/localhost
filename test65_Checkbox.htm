@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Формы во Vue.js</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	</head>
+	<body>
+		<div id="app">
+		    <input type="checkbox" v-model="light" v-bind:true-value="on" v-bind:false-value="off" />
+		      <span v-if="light===on">Выключить</span>
+		      <span v-else>Включить</span>
+			<br>
+			<input type="checkbox" value="Tom" v-model="selectedUsers">
+			<label>C#</label><br>
+			<input type="checkbox" value="Bob" v-model="selectedUsers">
+			<label>Bob</label><br>
+			<input type="checkbox" value="Sam" v-model="selectedUsers">
+			<label>Sam</label><br>
+			<input type="checkbox" value="Alice" v-model="selectedUsers">
+			<label>Alice</label><br>
+			<span>Выбрано: {{selectedUsers}}</span>
+       
+		</div>
+		<script src="https://unpkg.com/vue"></script>
+		<script>
+		    var app = new Vue({
+		        el: '#app',
+		        data: {
+		            on: true,
+		            off:false,
+		            light: true,
+		            selectedUsers:[]
+		        }
+		    });
+		</script>
+	</body>
+</html>
