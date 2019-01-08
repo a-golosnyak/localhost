@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Формы во Vue.js</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	</head>
+	<body>
+        <div id="app">
+            <input type="radio" v-bind:value="{name:'Tom', age:22}" v-model="user">
+            <label>Tom</label>
+            <br>
+            <input type="radio" v-bind:value="{name:'Bob', age:25}" v-model="user">
+            <label>Bob</label>
+            <br>
+            <input type="radio" v-bind:value="{name:'Sam', age:28}" v-model="user">
+            <label>Sam</label>
+            <br>
+            <span>Выбрано: {{user.name}} - {{user.age}}</span>
+        </div>
+        <script src="https://unpkg.com/vue"></script>
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    user:{}
+                }
+            });
+        </script>
+	</body>
+</html>
