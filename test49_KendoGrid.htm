@@ -18,12 +18,27 @@
     <script>
         $(document).ready(function () {
             $("#grid").kendoGrid({
-                dataSource: {
-                    type: "odata",
-                    transport: {
-                        read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Customers"
+ //               dataSource: words,
+                dataSource: {   
+                    transport: {   
+                      read: {
+                        url: "http://127.0.0.1:8000/getdata/5",
+                        data: {
+                          tags: "nature",
+                          format: "json"
+                        },
+                        dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                        jsonp: "jsoncallback",
+                      }
                     },
-                    pageSize: 20
+                    schema: {
+                        data: "translation1",
+                        model: {
+                            fields: {
+                                published: {type: "date"}
+                            }
+                        }
+                    }
                 },
                 height: 550,
                 groupable: true,
@@ -34,9 +49,6 @@
                     buttonCount: 5
                 },
                 columns: [{
-                    template: "<div class='customer-photo'" +
-                    "style='background-image: url(../content/web/Customers/XS5498655.jpg);'></div>" +
-                    "<div class='customer-name'>#: ContactName #</div>",
                     field: "Word",
                     title: "Word",
                     width: 240
@@ -49,6 +61,22 @@
                 }]
             });
         });
+
+        var words = [ 
+                {   Word: "word1",
+                    Translation: "translation1"
+                },
+                {   Word: "word2",
+                    Translation: "translation2"
+                },
+                {   Word: "word3",
+                    Translation: "translation3" 
+                },
+                {   Word: "word4",
+                    Translation: "translation4" 
+                } 
+            ];
+
     </script>
 </div>
 
