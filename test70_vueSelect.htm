@@ -6,22 +6,20 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	</head>
 	<body>
-        <div id="app" class="col-md-4">
-            <input type="text" v-model.lazy="name" class="form-control" />
-            <input v-model.number="age" type="number">
-            <input v-model.trim="message">
-
-            <div>Введено: name: {{name}}</div>
-            <div>Введено: age: {{age}}</div>
-            <div>Введено: message: {{message}}</div>
+        <div id="app">
+            <select v-model="user" multiple>
+                <option>Tom</option>
+                <option>Bob</option>
+                <option>Sam</option>
+            </select>
+            <span>Выбрано: {{user}}</span>
         </div>
-
         <script src="https://unpkg.com/vue"></script>
         <script>
             var app = new Vue({
                 el: '#app',
                 data: {
-                    name:''
+                    user:''
                 }
             });
         </script>
