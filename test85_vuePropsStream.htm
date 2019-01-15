@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Компоненты Vue.js</title>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <div id="app">
+            <h2>Hello, {{name}}</h2>
+            <useredit :user="name"></useredit>
+            <button v-on:click="resetName">Set Name</button>
+        </div>
+        
+        <script src="https://unpkg.com/vue"></script>
+        <script>
+            Vue.component('useredit', {
+                props: ["user"],
+                data: function () {
+                  return { userName: this.user}
+                },
+                template: '<div><input type="text" v-model="userName" /><p>Name: {{userName}}</p></div>'
+            });
+            new Vue({
+                el: "#app",
+                data: {
+                    name: 'Tom'
+                },
+                methods:{
+                    resetName: function(){
+                        this.name = 'Bob';
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
