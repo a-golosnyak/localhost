@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Компоненты Vue.js</title>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <div id="app">
+            <h2>Список пользователей</h2>
+            <userform :user="user"></userform>
+            <div>
+                <useritem v-for="(user, index) in users"
+                            :key="index"
+                            :user="user"
+                            :index="index"
+                            v-on:userchange="change">
+                </useritem>
+            </div>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        <script>
+            Vue.component('userform', {
+                props: ["user"],
+                template: `<div>
+                                <input type="text" v-model="user.name" />
+                                <input type="number" v-model="user.age" />
+                            </div>`,
+            });
+
+            Vue.component('useritem', {
+                props: ["user", "index"],
+                template: `<div>
+                                <p>Name: {{user.name}} <br> Age: {{user.age}}</p>
+                                <button  v-on:click="userChange(index)">Change</button>
+                            </div>`,
+                methods: {
+                    userChange: function(index){
+                        this.$emit('userchange', index);
+                    }
+                }
+            });
+            
+            new Vue({
+                el: "#app",
+                data: {
+                    users:[
+                        {name: 'Tom', age: 23},
+                        {name: 'Bob', age: 26},
+                        {name: 'Alice', age: 28}
+                    ],
+                    user:{}
+                },
+                methods:{
+                    change: function(index){
+                        this.user = this.users[index];
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

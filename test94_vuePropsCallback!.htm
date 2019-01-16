@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Компоненты Vue.js</title>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <div id="app">
+            <h2>Список пользователей</h2>
+            <userform :addfn="add"></userform>
+            <div>
+                <useritem v-for="(user, index) in users"
+                            :user="user"
+                            :key="index"
+                            :index="index"
+                            :removefn="remove">
+                </useritem>
+            </div>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        <script>
+            Vue.component('userform', {
+                props: ["addfn"],
+                data: function () {
+                    return {
+                        user: {name:'', age:18}
+                    }
+                },
+                template: `<div>
+                                <input type="text" v-model="user.name" />
+                                <input type="number" v-model="user.age" />
+                                <button  v-on:click="addfn({name:user.name, age: user.age})">Add</button>
+                            </div>`
+            });
+
+            Vue.component('useritem', {
+                props: ["user", "index", "removefn"],
+                template: `<div>
+                                <p>Name: {{user.name}} <br> Age: {{user.age}}</p>
+                                <button  v-on:click="removefn(index)">Delete</button>
+                            </div>`
+            });
+            
+            new Vue({
+                el: "#app",
+                data: {
+                    users:[
+                        {name: 'Tom', age: 23},
+                        {name: 'Bob', age: 26},
+                        {name: 'Alice', age: 28}
+                    ]
+                },
+                methods:{
+                    remove: function(index){
+                        this.users.splice(index, 1);
+                    },
+                    add: function(user){
+                        this.users.push(user);
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
