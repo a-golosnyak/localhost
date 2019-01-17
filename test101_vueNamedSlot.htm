@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Slots in Vue.js</title>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <div id="app">
+            <container>
+                <h1 slot="header">Заголовок статьи</h1>
+                <p slot="header">Дата статьи: 13/10/2017</p>
+                <p>Первый абзац.</p>
+                <p>Второй абзац.</p>
+                
+                <p slot="footer">Футер</p>
+             </container>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        <script>
+            Vue.component('container', { 
+                template: `<div>
+                            <header>
+                                <slot name="header">Заголовок по умолчанию</slot>
+                            </header>
+                            <article>
+                                <slot></slot>
+                            </article>
+                            <footer>
+                                <slot name="footer"></slot>
+                            </footer>
+                        </div>` 
+            });
+            new Vue({ 
+              el: '#app'
+            });
+        </script>
+    </body>
+</html>

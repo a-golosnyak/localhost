@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Компоненты Vue.js</title>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <div id="app">
+            <h2>User</h2>
+            <useredit :user="user"></useredit>
+            <userinfo :user="user"></userinfo>
+        </div>
+        
+        <script src="https://unpkg.com/vue"></script>
+        <script>
+            var eventBus = new Vue();
+             
+            Vue.component('useredit', { 
+                props: ["user"],
+                template: `<div>
+                                <input v-model="userName" />
+                                <button @click="save">Save</button>
+                            </div>`,
+                data: function () {
+                  return { userName: this.user}
+                },
+                methods:{
+                    save(){
+                        eventBus.$emit("userchange", this.userName);
+                    }
+                }
+            });
+            Vue.component('userinfo', { 
+                props: ["user"],
+                template: '<div><p>Имя: {{userName}}</p></div>',
+                data: function () {
+                  return { userName: this.user}
+                },
+                created(){
+                    eventBus.$on("userchange", (name)=>{
+                        this.userName = name;
+                    });
+                }
+            });
+            new Vue({
+                el: "#app",
+                data:{
+                    user:'Tom'
+                }
+            });
+        </script>
+    </body>
+</html>

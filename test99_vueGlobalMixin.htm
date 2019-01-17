@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Миксины Vue.js</title>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <div id="app">
+            <message></message>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        <script>
+            Vue.component('message', { 
+                template: `<h2>Hello</h2>`
+            });
+
+            Vue.mixin({
+              created: function () {
+                console.log("Global mixin has been created");
+              }
+            })
+            
+            new Vue({
+                el: "#app"
+            });
+        </script>
+    </body>
+</html>

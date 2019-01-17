@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Slots in Vue.js</title>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <div id="app">
+            <ads></ads>
+            <ads> 
+                <div>
+                    <p>Открыт набор на бесплатные курсы Udacity.</p>
+                    <p>Заявки принимаются до 16 октября</p>
+                </div>
+            </ads>
+        </div>
+        
+        <script src="https://unpkg.com/vue"></script>
+        <script>
+            Vue.component('ads', { 
+              template: `<div> 
+                           <h3>Объявление</h3> 
+                           <slot>Здесь могла бы ваша реклама</slot>
+                         </div>` 
+            });
+            new Vue({ 
+              el: '#app'
+        });
+        </script>
+    </body>
+</html>

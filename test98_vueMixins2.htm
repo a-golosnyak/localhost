@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Миксины Vue.js</title>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <div id="app">
+            <light></light>
+            <enabled></enabled>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        <script>
+            var toggleMixin = { 
+                data: function(){
+                    return { state: true, on: "ON", off: "OFF"}
+                },
+                methods:{
+                    toggle: function(){
+                        this.state= !this.state;
+                    }
+                }, 
+                created () { 
+                    console.log("Mixin has been created");
+                    this.$options.template = `<div>` + this.$options.template + 
+                        `<button v-on:click="toggle" v-show="state">{{on}}</button>
+                        <button v-on:click="toggle" v-show="!state">{{off}}</button></div>` 
+                }
+            };
+
+            Vue.component('light', {
+                template: `<h3>{{header}}</h3>`,
+                mixins:[toggleMixin],
+                computed:{
+                    header(){
+                        return this.state==true?"Свет включен":"Свет выключен";
+                    }
+                },
+                created(){
+                    console.log("Light component has been created");
+                }
+            });
+            
+            Vue.component('enabled', { 
+                template: `Включить функцию`, 
+                mixins:[toggleMixin],
+                created(){
+                    console.log("enabled component has been created");
+                }
+            });
+        </script>
+    </body>
+</html>
