@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Slots in Vue.js</title>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <div id="app">
+            <user>
+                <template slot-scope="props">
+                  <h3>Данные о пользователе</h3>
+                  <p>Имя: {{ props.username }}</p>
+                  <p>Имя: {{ props.userage }}</p>
+                </template>
+             </user>
+        </div>
+        
+        <script src="https://unpkg.com/vue"></script>
+        <script>
+            Vue.component('user', { 
+                template: `<div class="user">
+                                <slot username="Tom" userage="31"></slot>
+                        </div>` 
+            });
+            new Vue({ 
+              el: '#app'
+            });
+        </script>
+    </body>
+</html>

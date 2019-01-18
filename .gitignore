@@ -1,1 +1,3 @@
 .php_cs.cache
+/test106_vueApp/node_modules
+/test106_vueApp/dist

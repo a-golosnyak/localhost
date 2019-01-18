@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Компоненты Vue.js</title>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <div id="app"> 
+            <p>{{message | capitalize }}</p>
+            <p>{{message1 | capitalize }}</p>
+            <p>{{message2 | capitalize }}</p>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        <script>
+            Vue.filter('capitalize', function (value) { 
+                      var capitalFirst = value.charAt(0).toUpperCase() 
+                      var noCaseTail = value.slice(1, value.length) 
+                        return capitalFirst + noCaseTail;
+            });
+            new Vue({
+                el:'#app',
+                data: { 
+                    message: "hello word!", 
+                    message1: "определения фильтра его можно применить для форматирования какого-либо определенного значения. Это можно сделать в выражении интерполяции:",
+                    message2: " затем возвращается в качестве результата"
+                }
+            })
+        </script>
+    </body>
+</html>
