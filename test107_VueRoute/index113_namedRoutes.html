@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Маршрутизация Vue.js</title>
+		<meta charset="utf-8" />
+		<style>
+		a{padding: 5px;}
+		a.router-link-active, li.router-link-active>a {
+		  color: red;
+		}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+		    <div><router-link to="/" exact>Главная</router-link></div>
+		    <router-view></router-view>
+		</div>
+		
+		<script src="https://unpkg.com/vue"></script>
+		<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+		<script>
+			const NotFound = { template: '<h2>Страница не найдена</h2>' }
+			const Home = { template: `<div><h2>Главная</h2>
+			  <ul>
+			      <li><router-link :to="{ name: 'products', params: { id: 1 }}">Товар 1</router-link></li>
+			      <li><router-link :to="{ name: 'products', params: { id: 2 }}">Товар 2</router-link></li>
+			      <li><router-link :to="{ name: 'products', params: { id: 3 }}">Товар 3</router-link></li>
+			      <li><router-link :to="{ name: 'products', params: { id: 4 }}">Товар 4</router-link></li>
+			  </ul></div>` }
+			const Products = { template: '<h2>Товар {{$route.params.id}}</h2>' }
+			  
+			const routes = [
+			  { path: '/', component: Home },
+			  { 
+			    path: '/products/:id', 
+			    component: Products,
+			    name: 'products'
+			    },
+			    { path: '*', component: NotFound }
+			];
+			  
+			const router = new VueRouter({
+			    mode: 'history',
+			    routes: routes
+			});
+			new Vue({
+			  el: '#app',
+			  router: router
+			})
+		</script>
+	</body>
+</html>

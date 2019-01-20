@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Маршрутизация Vue.js</title>
+		<meta charset="utf-8" />
+		<style>
+		ul{list-style-type: none;padding: 0;}
+		li{display: inline-block;}
+		a{padding: 5px;}
+		a.router-link-active, li.router-link-active>a {
+		  color: red;
+		}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+		    <ul>
+		      <li><router-link to="/" exact>Главная</router-link></li>
+		      <li><router-link to="/products">Товары</router-link></li>
+		    </ul>
+		    <router-view></router-view>
+		</div>
+		
+		<script src="https://unpkg.com/vue"></script>
+		<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+		<script>
+			const NotFound = { template: '<h1>Страница не найдена</h1>' }
+			const Home = { template: '<h1>Главная</h1>' }
+			 
+			const Phones = { template: '<h2>Смартфоны</h2>' }
+			const Tablets = { template: '<h2>Планшеты</h2>' }
+			const Index = { template: `<div>
+			                            <h3>Выберите категорию</h3>
+			                            <div><router-link to="/products/phones">Смартфоны</router-link></div>
+			                            <div><router-link to="/products/tablets">Планшеты</router-link></div>
+			                            </div>` }
+			const Products = { template: '<div><h1>Товары</h1><router-view></router-view></div>' }
+			 
+			const routes = [
+			  { path: '/', component: Home },
+			  { 
+			    path: '/products', 
+			    component: Products,
+			    children: [
+			      {
+			        path: 'phones',
+			        component: Phones
+			      },
+			      {
+			        path: 'tablets',
+			        component: Tablets
+			      },{
+			        path: '',
+			        component: Index
+			      }]
+			    },
+			    { path: '*', component: NotFound }
+			];
+			 
+			const router = new VueRouter({
+			    mode: 'history',
+			    routes: routes
+			});
+			new Vue({
+			  el: '#app',
+			  router: router
+			})
+		</script>
+	</body>
+</html>

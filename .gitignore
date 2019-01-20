@@ -1,3 +1,4 @@
 .php_cs.cache
 /test106_vueApp/node_modules
 /test106_vueApp/dist
+/test107_vueRoute/node_modules

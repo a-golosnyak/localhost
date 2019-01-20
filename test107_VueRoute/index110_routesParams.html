@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Маршрутизация Vue.js</title>
+		<meta charset="utf-8" />
+		<style>
+		ul{list-style-type: none;padding: 0;}
+		li{display: inline-block;}
+		a{padding: 5px;}
+		a.router-link-active, li.router-link-active>a {
+		  color: red;
+		}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+		    <ul>
+		      <li><router-link to="/" exact>Home</router-link></li>
+		      <li><router-link to="/products/tablets/2">Tablet 2</router-link></li>
+		      <li><router-link to="/products/phones/3">Phone 3</router-link></li>
+		    </ul>
+		    <router-view></router-view>
+		</div>
+		
+		<script src="https://unpkg.com/vue"></script>
+		<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+		<script>
+			const NotFound = { template: '<h2>Page Not Found</h2>' }
+			const Home = { template: '<h2>Home Page</h2>' }
+			const Products = { template: `<div><h2>Product</h2>
+			                                  <h3>Category: {{$route.params.category }}</h3>
+			                                  <h3>Id: {{$route.params.id }}</h3>
+			                                </div>` }
+			 
+			const routes = [
+			  { path: '/', component: Home },
+			  { path: '/products/:category/:id', component: Products },
+			  { path: '*', component: NotFound }
+			];
+			// создаем объект маршрутизатора
+			const router = new VueRouter({
+			    mode: 'history',
+			    routes: routes
+			});
+			 
+			new Vue({
+			  el: '#app',
+			  router: router
+			})
+		</script>
+	</body>
+</html>
