@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Маршрутизация Vue.js</title>
+		<meta charset="utf-8" />
+	</head>
+	<body>
+		<div id="app">
+		    <router-view></router-view>
+		    <router-view name="ads"></router-view>
+		    <router-view name="content"></router-view>
+		</div>
+		
+		<script src="https://unpkg.com/vue"></script>
+		<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+		<script>
+			const NotFound = { template: '<h2>Страница не найдена</h2>' }
+			 
+			const HomeLink = { template: '<router-link to="/" exact>Главная</router-link>' }
+			 
+			const Products = { template: `
+			  <div>
+			  <h2>Товары</h2>
+			    <ul>
+			      <li><router-link to="/phones">Смартфоны</router-link></li>
+			      <li><router-link to="/tablets">Планшеты</router-link></li>
+			    </ul>
+			  </div>
+			` }
+			const PhonesAds = { template: '<div><h3>Реклама смартфонов</h3><p>Покупайте смартфоны фирмы Y</p></div>' }
+			const TabletsAds = { template: '<div><h3>Реклама планшетов</h3><p>Покупайте планшеты фирмы X!</p></div>' }
+			 
+			const Phones ={template:'<h2>Все о смартфонах</h2>'}
+			const Tablets ={template:'<h2>Все о планшетах</h2>'}
+			 
+			const routes = [
+			  { path: '/',
+			    components: {
+			      default: HomeLink,
+			      content: Products
+			    }
+			  },
+			  { 
+			    path: '/phones',
+			    components: {
+			      default: HomeLink,
+			      ads: PhonesAds,
+			      content: Phones
+			    }
+			  },
+			  { 
+			    path: '/tablets',
+			    components: {
+			      default: HomeLink,
+			      ads: TabletsAds,
+			      content: Tablets
+			    }
+			  },
+			  { path: '*', component: NotFound }
+			];
+			 
+			const router = new VueRouter({
+			    mode: 'history',
+			    routes: routes
+			});
+			new Vue({
+			  el: '#app',
+			  router: router
+			})
+		</script>
+	</body>
+</html>
